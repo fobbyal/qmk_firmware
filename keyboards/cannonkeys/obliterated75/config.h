@@ -1,5 +1,5 @@
 /*
-Copyright 2019 Maarten Dekkers <maartenwut@gmail.com>
+Copyright 2015 Jun Wako <wakojun@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,52 +17,62 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x4705
-#define PRODUCT_ID      0x7465
+#define VENDOR_ID       0xCA04
+#define PRODUCT_ID      0x0B75
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Maartenwut
-#define PRODUCT         ta-65
-#define DESCRIPTION     A universal 65% PCB with underglow.
+#define MANUFACTURER CannonKeys
+#define PRODUCT Obliterated75
+#define DESCRIPTION Obliterated75 Keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 5
+#define MATRIX_ROWS 6
 #define MATRIX_COLS 16
 
-// ROWS: Top to bottom, COLS: Left to right
-
-#define MATRIX_ROW_PINS {B4,D7,D6,D4,B3}
-#define MATRIX_COL_PINS {D2,D1,D0,D3,D5,C7,C6,B6,B5,F0,F1,F4,F5,F6,F7,B0}
-#define UNUSED_PINS
-
-#define ENCODERS_PAD_A { B2 }
-#define ENCODERS_PAD_B { B1 }
-
-/* Uncomment if your encoder doesn't react to every turn or skips */
-//#define ENCODER_RESOLUTION 2
-
-/* COL2ROW or ROW2COL */
+#define MATRIX_COL_PINS { A5, B10, A3, A2, B0, A9, C13, B9, B8, B7, B6, B5, B4, B3, A15, A14 }
+#define MATRIX_ROW_PINS { A13, B12, B11, B14, A8, A1 }
 #define DIODE_DIRECTION COL2ROW
+
+#define BACKLIGHT_PIN           A6
+#define BACKLIGHT_PWM_DRIVER    PWMD3
+#define BACKLIGHT_PWM_CHANNEL   1
+#define BACKLIGHT_PAL_MODE      1
+#define BACKLIGHT_LEVELS 6
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 6
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 5
+#define DEBOUNCE    5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-/* Backlight configuration
- */
-#define RGB_DI_PIN E6
 #define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 8
+#define RGB_DI_PIN B15
+#define RGBLED_NUM 20
+#define WS2812_SPI SPID2
+#define WS2812_SPI_MOSI_PAL_MODE 0
 
-#define QMK_ESC_OUTPUT D2 // usually COL
-#define QMK_ESC_INPUT B4 // usually ROW
-#define QMK_LED E6
+
+/*
+ * Feature disable options
+ *  These options are also useful to firmware size reduction.
+ */
+
+/* disable debug print */
+//#define NO_DEBUG
+
+/* disable print */
+//#define NO_PRINT
+
+/* disable action features */
+//#define NO_ACTION_LAYER
+//#define NO_ACTION_TAPPING
+//#define NO_ACTION_ONESHOT
+//#define NO_ACTION_MACRO
+//#define NO_ACTION_FUNCTION
